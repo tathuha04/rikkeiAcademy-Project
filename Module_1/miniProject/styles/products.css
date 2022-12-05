@@ -41,23 +41,6 @@
     font-weight: bold;
 }
 
-/* .btn-addCard {
-    visibility: hidden;
-    position: absolute;
-    top: 30%;
-    left: 25%;
-    padding: 8px 20px;
-    color: #fff;
-    border: 3px solid #ccc;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.296);
-}
-
-.btn-addCard:hover {
-    color: #fff;
-    background-color: rgba(62, 148, 13, 0.738);
-} */
-
 .card:hover .btn-addCard {
     visibility: visible;
 }
