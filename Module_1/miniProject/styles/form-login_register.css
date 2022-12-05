@@ -6,23 +6,23 @@ body {
     background-attachment: fixed;
 }
 
-.content {
+#content-form {
     width: 450px;
-    margin: 160px auto;
-    background-color: rgba(0, 0, 0, 0.56);
+    margin: 120px auto 30px;
+    background-color: rgba(0, 0, 0, 0.377);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 60px
+    padding: 30px 60px
 }
 
-.content .option-form {
+#content-form .option-form {
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-align: center;
 }
 
-.content .option-form a {
+#content-form .option-form a {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.558);
     width: 100%;
@@ -33,11 +33,11 @@ body {
     text-decoration: none;
 }
 
-.content .option-form a:hover {
+#content-form .option-form a:hover {
     background-color: #1cca8a
 }
 
-.content h2 {
+#content-form h2 {
     text-align: center;
     color: #fff;
 }

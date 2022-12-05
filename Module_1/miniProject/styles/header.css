@@ -93,5 +93,51 @@ header .btn-login:hover {
 }
 
 .login-link:hover {
-    color: #024f02
+    cursor: pointer;
+    color: orangered
+}
+
+.login-link ul,
+.login-link li {
+    padding: 0;
+    margin: 0;
+}
+
+.login-link li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.login-link li a {
+    width: 200px;
+    border-right: 1px solid #ccc;
+    display: block;
+    text-decoration: none;
+    line-height: 30px;
+    background-color: #000;
+    color: #fff;
+}
+
+.login-link ul ul li a {
+    width: 175px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.login-link li a:hover {
+    background-color: red;
+}
+
+.login-link ul ul {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    visibility: hidden;
+}
+
+.login-link ul li:hover ul {
+    visibility: visible;
 }

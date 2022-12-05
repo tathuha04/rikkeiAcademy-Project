@@ -1,16 +1,46 @@
+function onloadForm() {
+    let contentForm = document.getElementById("content-form");
+    let renderForm = `
+        <div class="option-form">
+            <a href="registerForm.html">SIGN UP</a>
+            <a href="loginForm.html" style="background-color:#1cca8a">LOGIN</a>
+        </div>
+        <br>
+        <h2>FORM LOGIN</h2>
+        <hr>
+        <div class="form-control">
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="inp-email" placeholder="Enter Email" name="email" required>
+        </div>
+
+        <div class="form-control">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="inp-password" placeholder="Enter Password" name="password" required>
+            <i class="fa-solid fa-eye-slash" id="btn-password"></i>
+        </div>
+        <div>
+            <p id="errorCheck"></p><br><br>
+            <button id="btn-submit">LOGIN</button>
+        </div>
+    `
+    contentForm.innerHTML += renderForm;
+}
+
+onloadForm();
+
+
 const inpEmail = document.getElementById("inp-email");
 const inpPassword = document.getElementById("inp-password");
 const btnPassword = document.getElementById("btn-password");
 const btnSubmit = document.getElementById("btn-submit");
 const errorCheck = document.getElementById("errorCheck");
 
-
-var usersRegister = [];
+var listUser = [];
 //NÚT SUBMIT
 let signUp = document.getElementById("btn-submit");
 signUp.addEventListener("click", function () {
     if (checkForm()) {
-        sessionStorage.setItem("user", JSON.stringify(usersRegister));
+        sessionStorage.setItem("user", JSON.stringify(listUser));
         window.location.href = "homePage.html";
     } else {
         errorCheck.innerHTML = "Email hoặc mật khẩu không đúng";
@@ -33,8 +63,8 @@ function checkForm() {
 
 //       KIỂM TRA XEM TÀI KHOẢN ĐÃ ĐƯƠC ĐĂNG KÝ CHƯA
 function checkLocalStorage() {
-    let checkUser = localStorage.getItem("user");
-    let listUser = JSON.parse(checkUser)
+    let getUser = localStorage.getItem("user");
+    let listUser = JSON.parse(getUser)
     for (const index in listUser) {
         console.log(listUser[index]);
         if (listUser[index].email == inpEmail.value && listUser[index].password == inpPassword.value) {

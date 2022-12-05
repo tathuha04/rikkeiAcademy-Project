@@ -1,4 +1,3 @@
-
 var renderCard = document.getElementById("renderCard");
 var selectedProduct = localStorage.getItem("selectedProduct");
 var listProduct = JSON.parse(selectedProduct);

@@ -1,3 +1,42 @@
+function onloadForm() {
+    let contentForm = document.getElementById("content-form");
+    let renderForm = `
+    <div class="option-form">
+        <a href="registerForm.html" style="background-color:#1cca8a">SIGN UP</a>
+        <a href="loginForm.html">LOGIN</a>
+    </div>
+    <br>
+    <h2>FORM REGISTER</h2>
+    <hr>
+    <div class="form-control">
+        <label for="email"><b>Email</b></label>
+        <input type="text" id="inp-email" placeholder="Enter Email" name="email" onchange="checkEmail()"
+            required> <br><br>
+        <p id="noteEmail"></p>
+    </div>
+
+    <div class="form-control">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="inp-password" placeholder="Enter Password" name="password" required
+            onchange="checkPassword()">
+        <i class="fa-solid fa-eye-slash" id="btn-password"></i>
+        <p id="notePassword"></p>
+    </div>
+
+    <div class="form-control">
+        <label for="confirmPassword"><b>Repeat Password</b></label>
+        <input type="password" id="inp-confirmPassword" placeholder="Confirm Password" name="confirmPassword"
+            onchange="checkConfirmPassword()" required>
+        <i class="fa-solid fa-eye-slash" id="btn-confirmPassword"></i>
+        <p id="noteConfirmPassword"></p>
+    </div>
+    <button id="btn-submit">Register</button>
+    `
+    contentForm.innerHTML += renderForm;
+}
+onloadForm();
+
+
 const inpEmail = document.getElementById("inp-email");
 const inpPassword = document.getElementById("inp-password");
 const btnPassword = document.getElementById("btn-password");
@@ -8,25 +47,53 @@ const noteEmail = document.getElementById("noteEmail");
 const notePassword = document.getElementById("notePassword");
 const noteConfirmPassword = document.getElementById("noteConfirmPassword");
 
-var usersRegister = [];
-let data = "user";
-
+// var getUser = localStorage.getItem("user");
+// if (getUser == null) {
+//     var listUser = [];
+// } else {
+//     listUser = JSON.parse(getUser);
+// }
 //NÚT SUBMIT
 let signUp = document.getElementById("btn-submit");
 signUp.addEventListener("click", function () {
     if (checkForm()) {
-        console.log(usersRegister);
-        usersRegister.push({
+        let objectUser = {
             email: inpEmail.value,
             password: inpPassword.value,
-        })
-        console.log(usersRegister);
-        console.log(JSON.stringify(usersRegister));
-        localStorage.setItem("user", JSON.stringify(usersRegister))
-        window.location.href = "loginForm.html"
+        }
+        let check = false;
+        let listUser = localStorage.getItem("user");
+
+        if (listUser == null) {
+            listUser = [];
+            listUser.push(objectUser);
+            console.log(listUser);
+            console.log(JSON.stringify(listUser));
+            localStorage.setItem("user", JSON.stringify(listUser));
+            swal("Tạo tài khoản thành công", "", "success");
+            window.location.href = "loginForm.html"
+        } else {
+            listUser = JSON.parse(listUser);
+            for (let i = 0; i < listUser.length; i++) {
+                if (listUser[i].email == inpEmail.value) {
+                    check = false;
+                    break;
+                } else {
+                    check = true;
+                }
+            } if (check == true) {
+                listUser.push(objectUser);
+                localStorage.setItem("user", JSON.stringify(listUser));
+                swal("Tạo tài khoản thành công", "", "success");
+                window.location.href = "loginForm.html"
+            } else {
+                console.log("Trùng email");
+                swal("Tạo tài khoản đã tồn tại", "", "error");
+            }
+        }
     }
+
 })
-console.log(usersRegister)
 
 
 ////////////        CHECK FORM        //////////////

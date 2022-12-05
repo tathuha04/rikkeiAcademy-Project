@@ -10,7 +10,7 @@
 }
 
 .card {
-    width: 22%;
+    width: 300px;
     transition: calc(0.6s);
     position: relative;
     padding: 40px;

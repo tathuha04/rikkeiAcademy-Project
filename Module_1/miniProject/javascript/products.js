@@ -73,7 +73,7 @@ function onLoadProducts() {
     let renderFurniture = document.getElementById("furniture");
     let allProducts = furniture.products;
     for (let i = 0; i < allProducts.length; i++) {
-        console.log(allProducts[i]);
+        // console.log(allProducts[i]);
 
         let product = `
         <div class="card">
@@ -100,17 +100,24 @@ onLoadProducts();
 var selectedProduct = [];
 
 function addCard(product) {
-    console.log("click");
-    console.log(product.dataset.image);
-    console.log(product.dataset.name);
-    console.log(product.dataset.price);
-    selectedProduct.push({
-        image: product.dataset.image,
-        name: product.dataset.name,
-        price: product.dataset.price
-    })
-    localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
-    console.log(JSON.stringify(selectedProduct));
+    // console.log("click");
+    // console.log(product.dataset.image);
+    // console.log(product.dataset.name);
+    // console.log(product.dataset.price);
+    let listUser = localStorage.getItem("user");
+    if (listUser != null) {
+        let objectProduct = {
+            image: product.dataset.image,
+            name: product.dataset.name,
+            price: product.dataset.price
+        }
+        selectedProduct.push(objectProduct)
+        localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+        // console.log(JSON.stringify(selectedProduct));
+    } else {
+        swal("Bạn chưa đăng nhập!", "Nếu chưa có tài khaorn hãy đăng ký", "error");
+    }
+
 }
 
 

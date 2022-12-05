@@ -7,66 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register-Form</title>
     <script src="https://kit.fontawesome.com/68734f4fab.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link rel="stylesheet" href="../styles/header.css" type="text/css">
     <link rel="stylesheet" href="../styles/form-login_register.css" />
 
 </head>
 
-<body>
+<body onscroll="myScroll()">
     <div class="container">
         <!-- ////////////     HEADER     //////////// -->
         <header id="nav-head">
-            <div class="nav-head_left">
-                <h2><a href="homePage.html">
-                        <img src="../images/logo.png" width="80%" alt="">
-                    </a></h2>
-            </div>
-
-            <div class="nav-head_center">
-                <h4><a href="#">Yêu Thích </a></h4>
-                <h4><a href="#">Yêu Thích </a></h4>
-            </div>
-
-            <div class="nav-head_right">
-                <a href="cartPage.html" class="card-link">Giỏ hàng<i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="loginForm.html" class="login-link">
-                    <i class="fa-solid fa-user"></i> Đăng Nhập
-                </a>
-            </div>
         </header>
 
-        <div class="content">
+        <!-- ////////////     CONTENT     //////////// -->
+        <div id="content-form">
             <!-- <form action="loginForm.html" onsubmit="return checkForm()"> -->
-            <div class="option-form">
-                <a href="registerForm.html" style="background-color:#1cca8a">SIGN UP</a>
-                <a href="loginForm.html">LOGIN</a>
-            </div>
-            <br>
-            <h2>FORM REGISTER</h2>
-            <hr>
-            <div class="form-control">
-                <label for="email"><b>Email</b></label>
-                <input type="text" id="inp-email" placeholder="Enter Email" name="email" onchange="checkEmail()"
-                    required> <br><br>
-                <p id="noteEmail"></p>
-            </div>
-
-            <div class="form-control">
-                <label for="password"><b>Password</b></label>
-                <input type="password" id="inp-password" placeholder="Enter Password" name="password" required
-                    onchange="checkPassword()">
-                <i class="fa-solid fa-eye-slash" id="btn-password"></i>
-                <p id="notePassword"></p>
-            </div>
-
-            <div class="form-control">
-                <label for="confirmPassword"><b>Repeat Password</b></label>
-                <input type="password" id="inp-confirmPassword" placeholder="Confirm Password" name="confirmPassword"
-                    onchange="checkConfirmPassword()" required>
-                <i class="fa-solid fa-eye-slash" id="btn-confirmPassword"></i>
-                <p id="noteConfirmPassword"></p>
-            </div>
-            <button id="btn-submit">Register</button>
             <!-- </form> -->
         </div>
 </body>
