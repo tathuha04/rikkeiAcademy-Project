@@ -70,8 +70,10 @@ signUp.addEventListener("click", function () {
             console.log(listUser);
             console.log(JSON.stringify(listUser));
             localStorage.setItem("user", JSON.stringify(listUser));
-            swal("Tạo tài khoản thành công", "", "success");
-            window.location.href = "loginForm.html"
+            swal("Tạo tài khoản thành công", "", "success")
+                .then(() => {
+                    window.location.href = "homePage.html"
+                })
         } else {
             listUser = JSON.parse(listUser);
             for (let i = 0; i < listUser.length; i++) {
@@ -84,8 +86,10 @@ signUp.addEventListener("click", function () {
             } if (check == true) {
                 listUser.push(objectUser);
                 localStorage.setItem("user", JSON.stringify(listUser));
-                swal("Tạo tài khoản thành công", "", "success");
-                window.location.href = "loginForm.html"
+                swal("Tạo tài khoản thành công", "", "success")
+                    .then(() => {
+                        window.location.href = "homePage.html"
+                    })
             } else {
                 console.log("Trùng email");
                 swal("Tạo tài khoản đã tồn tại", "", "error");

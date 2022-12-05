@@ -6,7 +6,7 @@ body {
     background-attachment: fixed;
 }
 
-.content {
+.content-card {
     margin: 50px auto;
     background-color: rgba(74, 72, 72, 0.836);
     background-size: cover;
@@ -14,7 +14,7 @@ body {
     padding: 60px
 }
 
-.content h2 {
+.content-card h2 {
     text-align: center;
     color: #fff
 }

@@ -3,25 +3,52 @@ const navbar = document.querySelector("header");
 
 function onloadHeader() {
     let header = document.getElementById("nav-head");
-    let renderHeader = `
-        <div class="nav-head_left col-">
-            <h2><a href="homePage.html">
-                     <img src="../images/logo.png" width="80%" alt="">
-            </a></h2>
-        </div>
+    let selectedProduct = localStorage.getItem("selectedProduct");
+    let listProduct = JSON.parse(selectedProduct);
+    if (selectedProduct != null) {
+        let renderHeader = `
+            <div class="nav-head_left col-">
+                <h2><a href="homePage.html">
+                        <img src="../images/logo.png" width="80%" alt="">
+                </a></h2>
+            </div>
 
-        <div class="nav-head_center">
-            <h4><a href="#">Yêu Thích </a></h4>
-            <h4><a href="#">Yêu Thích </a></h4>
-        </div>
+            <div class="nav-head_center">
+                <h4><a href="#">Yêu Thích </a></h4>
+                <h4><a href="#">Yêu Thích </a></h4>
+            </div>
 
-        <div class="nav-head_right">
-            <a href="cartPage.html" class="card-link">Giỏ hàng<i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="nav-head_right">
+                <a href="cartPage.html" class="card-link">Giỏ hàng
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count-cart">${listProduct.length}</span>
+                </a>
+                <div class="login-link"></div>
+            </div>
+`
+        header.innerHTML += renderHeader;
+    } else {
+        let renderHeader = `
+            <div class="nav-head_left col-">
+                <h2><a href="homePage.html">
+                        <img src="../images/logo.png" width="80%" alt="">
+                </a></h2>
+            </div>
 
-            <div class="login-link"></div>
-        </div>
-    `
-    header.innerHTML += renderHeader
+            <div class="nav-head_center">
+                <h4><a href="#">Yêu Thích </a></h4>
+                <h4><a href="#">Yêu Thích </a></h4>
+            </div>
+
+            <div class="nav-head_right">
+                <a href="cartPage.html" class="card-link">Giỏ hàng
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <div class="login-link"></div>
+            </div>
+        `
+        header.innerHTML += renderHeader;
+    }
 }
 onloadHeader();
 
@@ -51,9 +78,19 @@ function renderLogin() {
                     </ul>
                 </li>
             </ul>
+            <i class="fa-solid fa-right-from-bracket" onclick="logOut()" style="font-size:28px; margin-left:50px"></i>
             `
         change.innerHTML += renderUser;
-        console.log(user[i].email);
     }
 }
 renderLogin();
+
+function logOut() {
+    // console.log("click");
+    let listUser = localStorage.getItem("user");
+    if (listUser != null) {
+        localStorage.removeItem(localStorage.key("user"));
+        window.location.reload();
+    }
+}
+

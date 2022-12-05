@@ -104,20 +104,15 @@ function addCard(product) {
     // console.log(product.dataset.image);
     // console.log(product.dataset.name);
     // console.log(product.dataset.price);
-    let listUser = localStorage.getItem("user");
-    if (listUser != null) {
-        let objectProduct = {
-            image: product.dataset.image,
-            name: product.dataset.name,
-            price: product.dataset.price
-        }
-        selectedProduct.push(objectProduct)
-        localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
-        // console.log(JSON.stringify(selectedProduct));
-    } else {
-        swal("Bạn chưa đăng nhập!", "Nếu chưa có tài khaorn hãy đăng ký", "error");
+    let objectProduct = {
+        image: product.dataset.image,
+        name: product.dataset.name,
+        price: product.dataset.price
     }
-
+    selectedProduct.push(objectProduct)
+    localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+    // console.log(JSON.stringify(selectedProduct));
+    swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
 }
 
 

@@ -78,7 +78,7 @@ header .btn-login:hover {
 }
 
 .card-link {
-    font-size: 18px;
+    font-size: 20px;
     color: #024f02;
 }
 
@@ -86,21 +86,33 @@ header .btn-login:hover {
     color: orangered
 }
 
-.login-link {
-    font-size: 18px;
-    color: rgb(13, 120, 243);
-    text-decoration: underline;
+.count-cart {
+    position: relative;
+    top: -12px;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 14px;
 }
 
-.login-link:hover {
-    cursor: pointer;
-    color: orangered
+.login-link {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    text-decoration: underline;
 }
 
 .login-link ul,
 .login-link li {
     padding: 0;
     margin: 0;
+    color: rgb(13, 120, 243);
+}
+
+.login-link li:hover {
+    color: orangered;
+    cursor: pointer;
 }
 
 .login-link li {
@@ -140,4 +152,13 @@ header .btn-login:hover {
 
 .login-link ul li:hover ul {
     visibility: visible;
+}
+
+.fa-right-from-bracket {
+    color: rgb(92, 73, 3);
+}
+
+.fa-right-from-bracket:hover {
+    cursor: pointer;
+    color: #fff;
 }

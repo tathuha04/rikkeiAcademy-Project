@@ -1,6 +1,8 @@
 var renderCard = document.getElementById("renderCard");
 var selectedProduct = localStorage.getItem("selectedProduct");
 var listProduct = JSON.parse(selectedProduct);
+
+
 function onLoadProducts() {
     for (const index in listProduct) {
         console.log(listProduct[index]);
@@ -36,5 +38,11 @@ function deleteProduct(value) {
 }
 
 function buyNow() {
-    window.location.href = "../pages/loginForm.html"
+    let listUser = localStorage.getItem("user");
+    if (listUser == null) {
+        window.location.href = "../pages/loginForm.html"
+    }else{
+        window.location.href ="../pages/thanhToan.html";
+    }
+
 }
