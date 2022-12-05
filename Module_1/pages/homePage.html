@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <script src="https://kit.fontawesome.com/68734f4fab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/header.css" type="text/css">
+    <link rel="stylesheet" href="../styles/slides.css" type="text/css">
+    <link rel="stylesheet" href="../styles/products.css" type="text/css">
+</head>
+
+<body onscroll="myFunction()">
+    <div class="container">
+        <!-- ////////////     HEADER     //////////// -->
+        <header id="nav-head">
+            <div class="nav-head_left">
+                <h2><a href="homePage.html">
+                        <img src="../images/logo.png" width="80%" alt="">
+                    </a></h2>
+            </div>
+
+            <div class="nav-head_center">
+                <h4><a href="#">Yêu Thích </a></h4>
+                <h4><a href="#">Yêu Thích </a></h4>
+            </div>
+
+            <div class="nav-head_right">
+                <a href="cartPage.html" class="card-link">Giỏ hàng<i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="loginForm.html" class="login-link" id="loginLink">
+                    <i class="fa-solid fa-user"></i> Đăng Nhập
+                </a>
+            </div>
+        </header>
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="../images/slide_1.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="../images/slide_2.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="../images/slide_3.jpg" style="width:100%">
+            </div>
+
+            <div class="text">NỘI THẤT ĐẸP</div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            <div class="dot-list" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 style="text-align:center">Sản Phẩm</h2>
+            <!-- Tạo id để render ra sản phẩm bằng JS -->
+            <div id="furniture"></div>
+        </div>
+
+        <div class="footer">
+            <div>NỘI THẤT ĐẸP</div>
+        </div>
+    </div>
+</body>
+<script src="../javascript/header.js"></script>
+<script type="text/javascript" src="../javascript/slides.js"></script>
+<script type="text/javascript" src="../javascript/products.js"></script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <script src="https://kit.fontawesome.com/68734f4fab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/header.css" type="text/css">
+    <link rel="stylesheet" href="../styles/card.css" type="text/css">
+
+    <style>
+
+    </style>
+</head>
+
+<body onscroll="myFunction()">
+    <div class="container">
+        <!-- ////////////     HEADER     //////////// -->
+        <header id="nav-head">
+            <div class="nav-head_left">
+                <h2><a href="homePage.html">
+                        <img src="../images/logo.png" width="80%" alt="">
+                    </a></h2>
+            </div>
+
+            <div class="nav-head_center">
+                <h4><a href="#">Yêu Thích </a></h4>
+                <h4><a href="#">Yêu Thích </a></h4>
+            </div>
+
+            <div class="nav-head_right">
+                <a href="cartPage.html" class="card-link">Giỏ hàng<i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="loginForm.html" class="login-link">
+                    <i class="fa-solid fa-user"></i> Đăng Nhập
+                </a>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h2>Giỏ hàng của bạn</h2>
+            <div id="renderCard"></div>
+        </div>
+    </div>
+</body>
+<script src="../javascript/header.js"></script>
+<script type="text/javascript" src="../javascript/card.js"></script>
+
+</html>
