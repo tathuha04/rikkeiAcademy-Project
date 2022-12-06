@@ -52,6 +52,8 @@ body {
     text-align: center;
 }
 
+.quantity {}
+
 .price {
     color: red;
     font-weight: bold;
