@@ -92,22 +92,21 @@ var products = [
 
 function onLoadProducts() {
     let renderFurniture = document.getElementById("furniture");
-    let allProducts = products;
-    for (let i = 0; i < allProducts.length; i++) {
-        // console.log(allProducts[i]);
+    for (let i = 0; i < products.length; i++) {
+        // console.log(products[i]);
         let product = `
         <div class="card">
-            <img src="${allProducts[i].image}" alt="" width="100%">
+            <img src="${products[i].image}" alt="" width="100%">
             <div class="card-body">
-                <h2>${allProducts[i].name}</h2>
+                <h2>${products[i].name}</h2>
                 <br>
                 <div style="display:flex; justify-content:space-evenly">
-                    <p class="old-price">${allProducts[i].oldPrice}</p>
-                    <p class="new-price">${allProducts[i].newPrice}</p>
+                    <p class="old-price">${products[i].oldPrice}</p>
+                    <p class="new-price">${products[i].newPrice}</p>
                 </div>
             </div>
-            <button class="btn-addCard" data-image="${allProducts[i].image}" data-name="${allProducts[i].name}"
-                data-newprice="${allProducts[i].newPrice}" data-price="${allProducts[i].price}" data-quantity="${allProducts[i].quantity}"
+            <button class="btn-addCard" data-image="${products[i].image}" data-name="${products[i].name}"
+                data-newprice="${products[i].newPrice}" data-price="${products[i].price}" data-quantity="${products[i].quantity}"
                 onclick="addCard(this)"> <span>Thêm vào giỏ hàng</span>
             </button>
         </div>
@@ -131,36 +130,36 @@ function addCard(product) {
         price: product.dataset.price,
         quantity: product.dataset.quantity,
     }
-    let listProduct = localStorage.getItem("selectedProduct");
+    let listProductCart = localStorage.getItem("listProductCart");
 
-    if (listProduct == null) {
-        listProduct = [];
-        listProduct.push(objectProduct);
-        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+    if (listProductCart == null) {
+        listProductCart = [];
+        listProductCart.push(objectProduct);
+        localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
         swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
             .then(() => {
                 window.location.reload();
             })
-    } else if (JSON.parse(listProduct).length == '') {
-        listProduct = JSON.parse(listProduct);
-        listProduct.push(objectProduct);
-        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+    } else if (JSON.parse(listProductCart).length == '') {
+        listProductCart = JSON.parse(listProductCart);
+        listProductCart.push(objectProduct);
+        localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
         console.log("đã có sản phẩm này rồi");
         swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
             .then(() => {
                 window.location.reload();
             })
     } else {
-        listProduct = JSON.parse(listProduct);
+        listProductCart = JSON.parse(listProductCart);
         let check = false;
-        for (let i = 0; i < listProduct.length; i++) {
-            if (listProduct[i].name == objectProduct.name) {
+        for (let i = 0; i < listProductCart.length; i++) {
+            if (listProductCart[i].name == objectProduct.name) {
                 check = false;
-                let count = Number(listProduct[i].quantity);
-                let price = Number(listProduct[i].price);
-                listProduct[i].quantity = ++count;
-                listProduct[i].price = price + price;
-                localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+                let count = Number(listProductCart[i].quantity);
+                let price = Number(listProductCart[i].price);
+                listProductCart[i].quantity = ++count;
+                listProductCart[i].price = price + price;
+                localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
                 swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
                     .then(() => {
                         window.location.reload();
@@ -171,8 +170,8 @@ function addCard(product) {
             }
         }
         if (check == true) {
-            listProduct.push(objectProduct);
-            localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+            listProductCart.push(objectProduct);
+            localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
             swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
                 .then(() => {
                     window.location.reload();

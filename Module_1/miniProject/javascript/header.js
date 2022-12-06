@@ -3,9 +3,9 @@ const navbar = document.querySelector("header");
 
 function onloadHeader() {
     let header = document.getElementById("nav-head");
-    let selectedProduct = localStorage.getItem("selectedProduct");
-    let listProduct = JSON.parse(selectedProduct);
-    if (selectedProduct != null) {
+    let listProductCart = localStorage.getItem("listProductCart");
+    let listProduct = JSON.parse(listProductCart);
+    if (listProductCart != null) {
         let renderHeader = `
             <div class="nav-head_left col-">
                 <h2><a href="homePage.html">

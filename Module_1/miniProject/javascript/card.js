@@ -1,11 +1,11 @@
 var renderCard = document.getElementById("renderCard");
-var selectedProduct = localStorage.getItem("selectedProduct");
-var listProduct = JSON.parse(selectedProduct);
+// var listProductCart = localStorage.getItem("listProductCart");
+// var listProduct = JSON.parse(listProductCart);
 
 
 function onLoadProducts() {
-    var selectedProduct = localStorage.getItem("selectedProduct");
-    var listProduct = JSON.parse(selectedProduct);
+    let listProductCart = localStorage.getItem("listProductCart");
+    let listProduct = JSON.parse(listProductCart);
     for (const index in listProduct) {
         console.log(listProduct[index]);
         let product = `
@@ -32,18 +32,18 @@ onLoadProducts();
 
 function deleteProduct(value) {
     console.log("click");
-    var selectedProduct = localStorage.getItem("selectedProduct");
-    if (selectedProduct == null) {
-        selectedProduct = []
-        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+    var listProductCart = localStorage.getItem("listProductCart");
+    if (listProductCart == null) {
+        listProductCart = []
+        localStorage.setItem("listProductCart", JSON.stringify(listProduct));
     } else {
-        var listProduct = JSON.parse(selectedProduct);
+        var listProduct = JSON.parse(listProductCart);
         for (let index = 0; index < listProduct.length; index++) {
             if (listProduct[index].name === value.dataset.name) {
                 listProduct.splice(index, 1);
             }
         }
-        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+        localStorage.setItem("listProductCart", JSON.stringify(listProduct));
         console.log(JSON.stringify(listProduct));
         window.location.reload();
     }
