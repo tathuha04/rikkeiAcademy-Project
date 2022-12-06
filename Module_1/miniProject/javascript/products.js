@@ -95,7 +95,6 @@ function onLoadProducts() {
     let allProducts = products;
     for (let i = 0; i < allProducts.length; i++) {
         // console.log(allProducts[i]);
-
         let product = `
         <div class="card">
             <img src="${allProducts[i].image}" alt="" width="100%">
