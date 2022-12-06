@@ -97,22 +97,40 @@ function onLoadProducts() {
 }
 onLoadProducts();
 
-var selectedProduct = [];
 
 function addCard(product) {
     // console.log("click");
     // console.log(product.dataset.image);
     // console.log(product.dataset.name);
     // console.log(product.dataset.price);
+
     let objectProduct = {
         image: product.dataset.image,
         name: product.dataset.name,
         price: product.dataset.price
     }
-    selectedProduct.push(objectProduct)
-    localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
-    // console.log(JSON.stringify(selectedProduct));
-    swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
+    let listProduct = localStorage.getItem("selectedProduct");
+
+    if (listProduct == null) {
+        listProduct = [];
+        listProduct.push(objectProduct);
+        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+        swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
+            .then(() => {
+                window.location.reload();
+            })
+    } else {
+        listProduct = JSON.parse(listProduct)
+        listProduct.push(objectProduct);
+        localStorage.setItem("selectedProduct", JSON.stringify(listProduct));
+        // console.log(JSON.stringify(selectedProduct));
+        swal("Sản phẩm đã được thêm vào giỏ hàng!", "chúc bạn 1 ngày tốt lành", "success")
+            .then(() => {
+                window.location.reload();
+            })
+    }
+
+
 }
 
 
